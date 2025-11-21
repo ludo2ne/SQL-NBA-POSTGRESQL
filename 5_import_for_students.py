@@ -45,8 +45,6 @@ cur.execute(sql_create_schema)
 
 cmd = [
     "pg_restore",
-    "-n",
-    "nba",
     "-d",
     PG_DB,
     "-h",
