@@ -23,6 +23,8 @@ POSTGRESQL_SCHEMA=nba
 
 ## Students : import nba data
 
+- [ ] Open a *Vscode-python* service
+- [ ] Clone this repo using *https*
 - [ ] Install packages
 - [ ] Create `.env` file
 - [ ] Run script `5_import_for_students.py`
