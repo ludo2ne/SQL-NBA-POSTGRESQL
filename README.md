@@ -2,7 +2,15 @@
 
 Create nba database using nba_api
 
-## Create env file
+## Packages
+
+All needed packages are in file called *requirements.txt*. Use the following command to install:
+
+`pip install -r requirements.txt`
+
+## Create .env file
+
+Create a file called `.env` at the project root. Paste and fill these variables:
 
 ```
 POSTGRESQL_HOST=
@@ -13,7 +21,23 @@ POSTGRESQL_PASSWORD=
 POSTGRESQL_SCHEMA=nba
 ```
 
-## Using api
+## Students : import nba data
+
+- [ ] Install packages
+- [ ] Create `.env` file
+- [ ] Run script `5_import_for_students.py`
+- [ ] Check using cloudBeaver that the nba schema has been created in your database 
+
+
+## Teacher
+
+1. Call nba_api to obtain the data, convert it to df, then insert it into the database.
+2. Post processing to fix some issues
+3. Generate a dump file
+4. Upload this dump file to S3
+
+
+### :construction: Using api
 
 run: `uvicorn 6_import_for_students_api:app --host 0.0.0.0 --port 8000`
 
