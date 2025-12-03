@@ -15,7 +15,7 @@ app = FastAPI(title="NBA Restore API")
 
 
 # -----------------------------
-# 📥 Body du POST
+# Body du POST
 # -----------------------------
 class PGConfig(BaseModel):
     PG_HOST: str
@@ -53,7 +53,7 @@ def restore_database(cfg: PGConfig):
         # ======================================================
         # 3) pg_restore
         # ======================================================
-        print("⏳ Restauration PostgreSQL...")
+        print("Restauration PostgreSQL...")
 
         cmd = [
             "pg_restore",
@@ -72,7 +72,7 @@ def restore_database(cfg: PGConfig):
 
         subprocess.run(cmd, check=True)
 
-        print("🎉 Base NBA restaurée dans PostgreSQL")
+        print("Base NBA restaurée dans PostgreSQL")
 
         return JSONResponse({"status": "success", "message": "NBA restored successfully"})
 

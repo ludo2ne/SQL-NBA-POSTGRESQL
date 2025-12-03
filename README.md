@@ -25,8 +25,11 @@ POSTGRESQL_SCHEMA=nba
 
 - [ ] Open a *Vscode-python* service
 - [ ] Clone this repo using *https*
-- [ ] Install packages
+- [ ] Install needed packages
 - [ ] Create `.env` file
+- [ ] Update *pg_restore* version
+  - `sudo apt update`
+  - `sudo apt install postgresql-client-16`
 - [ ] Run script `5_import_for_students.py`
 - [ ] Check using cloudBeaver that the nba schema has been created in your database 
 
