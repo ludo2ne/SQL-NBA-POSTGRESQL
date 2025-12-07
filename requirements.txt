@@ -1,4 +1,6 @@
 fastapi
+nba_api
+pandas
 python-dotenv
 psycopg2-binary
 uvicorn

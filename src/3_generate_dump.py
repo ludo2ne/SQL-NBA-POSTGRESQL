@@ -3,7 +3,6 @@ import subprocess
 
 from dotenv import load_dotenv
 
-# Charger les variables d'environnement du .env
 load_dotenv()
 
 PG_HOST = os.getenv("POSTGRESQL_HOST")
@@ -13,9 +12,12 @@ PG_USER = os.getenv("POSTGRESQL_USERNAME")
 PG_PASSWORD = os.getenv("POSTGRESQL_PASSWORD")
 PG_SCHEMA = os.getenv("POSTGRESQL_SCHEMA")
 
-DUMP_FILE = "nba.dump"
+DATA_DIR = os.path.join(os.path.dirname(__file__), "..", "data")
+os.makedirs(DATA_DIR, exist_ok=True)
 
-print("📦 Création du dump PostgreSQL...")
+DUMP_FILE = os.path.join(DATA_DIR, "nba.dump")
+
+print("Création du dump PostgreSQL...")
 
 cmd = [
     "pg_dump",
@@ -38,4 +40,4 @@ cmd = [
 
 subprocess.run(cmd, check=True)
 
-print("✔️ Dump créé :", DUMP_FILE)
+print("Dump créé :", DUMP_FILE)

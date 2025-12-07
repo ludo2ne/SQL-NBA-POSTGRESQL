@@ -28,8 +28,9 @@ POSTGRESQL_SCHEMA=nba
 - [ ] Install needed packages
 - [ ] Create `.env` file
 - [ ] Update *pg_restore* version
+  - actual version is 16 on VScode-python, needed : 17
   - `sudo apt update`
-  - `sudo apt install postgresql-client-16`
+  - `sudo apt install postgresql-client-17`
 - [ ] Run script `5_import_for_students.py`
 - [ ] Check using cloudBeaver that the nba schema has been created in your database 
 
@@ -44,7 +45,14 @@ POSTGRESQL_SCHEMA=nba
 
 ### :construction: Using api
 
+Objective : 
+
+- Create and launch an api
+- Students can use the `restore` endpoint with a body containing the database connection information 
+
+
 run: `uvicorn 6_import_for_students_api:app --host 0.0.0.0 --port 8000`
+
 
 call:
 

@@ -3,7 +3,6 @@ import subprocess
 import traceback
 
 import psycopg2
-import s3fs
 from dotenv import load_dotenv
 from fastapi import FastAPI
 from fastapi.responses import JSONResponse

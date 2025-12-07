@@ -11,18 +11,17 @@ USERNAME = "ludo2ne"
 DUMP_FILE = "nba.dump"
 
 
-print("📡 Upload vers S3...")
+print("Upload vers S3...")
 
 fs = s3fs.S3FileSystem(
     client_kwargs={"endpoint_url": AWS_ENDPOINT}, key=AWS_KEY, secret=AWS_SECRET, token=AWS_TOKEN
 )
 
-
 destination = f"s3://{USERNAME}/diffusion/ENSAI/SQL-TP/{DUMP_FILE}"
 
 with fs.open(destination, mode="wb") as f_out:
-    with open(DUMP_FILE, "rb") as f_in:
+    with open(f"data/{DUMP_FILE}", "rb") as f_in:
         f_out.write(f_in.read())
 
 
-print("✔️ Dump uploadé sur S3")
+print("Dump uploadé sur S3")
