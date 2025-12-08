@@ -50,7 +50,8 @@ conn = psycopg2.connect(
 )
 conn.autocommit = True
 cur = conn.cursor()
-cur.execute(f"CREATE SCHEMA IF NOT EXISTS {PG_SCHEMA};")
+cur.execute(f"DROP SCHEMA IF EXISTS {PG_SCHEMA} CASCADE;")
+cur.execute(f"CREATE SCHEMA {PG_SCHEMA};")
 cur.close()
 conn.close()
 

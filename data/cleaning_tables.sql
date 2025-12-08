@@ -43,7 +43,7 @@ INSERT INTO nba.team (full_name,abbreviation,nickname,city,state,year_founded,id
 	 ('Detroit Pistons','DET','Pistons','Detroit','Michigan',1948.0,1610612765,'East'),
 	 ('Charlotte Hornets','CHA','Hornets','Charlotte','North Carolina',1988.0,1610612766,'East');
 
-ALTER TABLE nba.player_stat_match_2024
+ALTER TABLE nba.player_stat_match
 DROP COLUMN IF EXISTS teamcity,
 DROP COLUMN IF EXISTS teamname,
 DROP COLUMN IF EXISTS teamtricode,

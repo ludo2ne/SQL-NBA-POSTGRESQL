@@ -24,7 +24,11 @@ POSTGRESQL_SCHEMA=nba
 ## Students : import nba data
 
 - [ ] Open a *Vscode-python* service
-- [ ] Clone this repo using *https*
+- [ ] Open a terminal
+  - CTRL + ù
+- [ ] Clone this repository using *https*
+- [ ] Open Folder of the repository
+  - `code-server SQL-NBA-POSTGRESQL`
 - [ ] Install needed packages
 - [ ] Create `.env` file
 - [ ] Update *pg_restore* version

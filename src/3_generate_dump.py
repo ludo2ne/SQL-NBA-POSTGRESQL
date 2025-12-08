@@ -31,12 +31,13 @@ cmd = [
     PG_DB,
     "-n",
     PG_SCHEMA,
+    "--no-owner",
+    "--no-privileges",
     "-F",
     "c",
     "-f",
     DUMP_FILE,
 ]
-
 
 subprocess.run(cmd, check=True)
 
