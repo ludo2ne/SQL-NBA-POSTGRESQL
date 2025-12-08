@@ -58,6 +58,7 @@ conn.close()
 # --- Restaurer le dump
 cmd = [
     "pg_restore",
+    "--no-owner",
     "-d",
     PG_DB,
     "-h",
