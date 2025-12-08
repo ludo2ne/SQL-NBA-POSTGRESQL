@@ -55,7 +55,7 @@ Objective :
 - Students can use the `restore` endpoint with a body containing the database connection information 
 
 
-run: `uvicorn 6_import_for_students_api:app --host 0.0.0.0 --port 8000`
+run: `uvicorn src/6_import_for_students_api:app --host 0.0.0.0 --port 5000`
 
 
 call:

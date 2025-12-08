@@ -5,7 +5,7 @@ import traceback
 import psycopg2
 from dotenv import load_dotenv
 from fastapi import FastAPI
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse, RedirectResponse
 from pydantic import BaseModel
 
 load_dotenv()
@@ -25,6 +25,11 @@ class PGConfig(BaseModel):
     PG_SCHEMA: str = "nba"  # optionnel
 
 
+@app.get("/", include_in_schema=False)
+def root():
+    return RedirectResponse(url="/docs")
+
+
 @app.post("/restore")
 def restore_database(cfg: PGConfig):
     try:
@@ -32,6 +37,7 @@ def restore_database(cfg: PGConfig):
         # 1) Download depuis S3
         # ======================================================
         DUMP_FILE = "nba.dump"
+        DUMP_FILEPATH = f"data/{DUMP_FILE}"
         os.environ["PGPASSWORD"] = cfg.PG_PASSWORD
 
         conn = psycopg2.connect(
@@ -56,6 +62,7 @@ def restore_database(cfg: PGConfig):
 
         cmd = [
             "pg_restore",
+            "--no-owner",
             "-d",
             cfg.PG_DB,
             "-h",
@@ -66,7 +73,7 @@ def restore_database(cfg: PGConfig):
             cfg.PG_USER,
             "-n",
             cfg.PG_SCHEMA,
-            DUMP_FILE,
+            DUMP_FILEPATH,
         ]
 
         subprocess.run(cmd, check=True)
